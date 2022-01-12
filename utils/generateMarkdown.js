@@ -27,7 +27,7 @@ function renderLicenseBadge(license) {
 function renderLicenseSection(license) {
     if (license === "MIT") {
         return `# License
-${license}
+${renderLicenseBadge(license)}
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -47,7 +47,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.`
     } else if (license === "Apache") {
         return `# License
-${license}
+${renderLicenseBadge(license)}
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -61,7 +61,7 @@ See the License for the specific language governing permissions and
 limitations under the License.`
     } else if (license === "The Unlicense") {
         return `# License
-${license}
+${renderLicenseBadge(license)}
 This is free and unencumbered software released into the public domain.
 
 Anyone is free to copy, modify, publish, use, compile, sell, or
@@ -121,24 +121,31 @@ ${tests}`
 }
 
 function renderQuestions(user, email) {
-    return `
-# Questions
+    return `# Questions
 ${user}
 Send me an email at ${email} with any additional questions.
 `
 }
 
 function renderTableOfContents(license) {
-    if(license) {
-    return `
-- [License](#license)
-- [Description](#description)
-`
-}
-else if (license === "Project does not use a licence") {
+    if (license === "Project does not use a licence") {
         return `
 - [Description](#description)
-- [installation](#installation)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
+`
+    }else {
+    return `
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
 `
     }
 }
