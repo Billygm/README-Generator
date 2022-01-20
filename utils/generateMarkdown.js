@@ -123,8 +123,9 @@ ${tests}`;
 
 function renderQuestions(user, email) {
   return `# Questions
-${user}
-Send me an email at ${email} with any additional questions.
+My GitHub user is [${user}](https://github.com/${user})
+
+Send me an email at [${email}](mailto:${email}) with any additional questions.
 `;
 }
 
